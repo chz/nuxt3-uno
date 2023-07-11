@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^20.4.1",
+    "@unocss/nuxt": "^0.53.5",
+    "@unocss/transformer-compile-class": "^0.53.5",
+    "@unocss/transformer-directives": "^0.53.5",
+    "nuxt": "^3.6.2"
+  }
+}
