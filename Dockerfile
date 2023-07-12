@@ -4,7 +4,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . .
 
-RUN npm install && npm cache clean --force
+RUN npm install --force
 RUN npm run build
 
 ENV NUXT_HOST=0.0.0.0
