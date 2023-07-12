@@ -3,7 +3,7 @@ FROM node:lts-alpine
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
-COPY ~/nuxt3 /app/public/nuxt3
+COPY ./nuxt3 /app/public/nuxt3
 
 RUN npm install --force
 RUN npm run build
