@@ -4,7 +4,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . .
 
-RUN npm install --global yarn
+RUN npm install --global yarn --force
 RUN yarn build
 
 ENV NUXT_HOST=0.0.0.0
