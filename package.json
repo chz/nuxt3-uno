@@ -1,7 +1,7 @@
 {
   "name": "nuxt3-minimal-app",
   "author": "Chingiz Mammadov <info@chz.dev>",
-  "description": "Nuxt 3 minimal app, Unocss, Base optimizations for production",
+  "description": "Nuxt 3 minimal app + UnoCSS + Custom SVG Icons",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,11 +12,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify/tools": "^3.0.5",
     "@nuxt/devtools": "latest",
     "@types/node": "^20.4.1",
-    "@unocss/nuxt": "^0.55.1",
-    "@unocss/transformer-compile-class": "^0.55.1",
-    "@unocss/transformer-directives": "^0.55.1",
+    "@unocss/nuxt": "^0.55.2",
     "nuxt": "^3.6.5"
   }
 }

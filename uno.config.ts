@@ -1,30 +1,19 @@
 const isDev: boolean = process.env.NODE_ENV === 'development'
-// uno.config.ts
-import { defineConfig } from 'unocss'
-import transformerCompileClass from '@unocss/transformer-compile-class'
-import transformerDirectives from '@unocss/transformer-directives'
+
+import { defineConfig, transformerDirectives, presetIcons, presetUno } from 'unocss'
+import {loadCustomIconSet} from "./utilities";
 
 let transformers: any = [
   transformerDirectives()
 ]
 
-if (!isDev) {
-  transformers = [
-    ...transformers,
-    transformerCompileClass({
-      classPrefix: '',
-    }),
-  ]
-}
-
 export default defineConfig({
-  // Uncomment before production
-  // content:{
-  //   pipeline: {
-  //     include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
-  //     exclude: ['node_modules','.git','.nuxt','.output']
-  //   }
-  // },
+  content:{
+    pipeline: {
+      include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
+      exclude: ['node_modules','.git','.nuxt','.output']
+    }
+  },
   preflights: [
     {
       getCSS: () => `
@@ -39,4 +28,15 @@ export default defineConfig({
     }
   ],
   transformers,
+  presets:[
+    presetUno(),
+    presetIcons({
+      extraProperties: {
+        'display': 'inline-flex',
+      },
+      collections: {
+        custom: loadCustomIconSet()
+      }
+    })
+  ]
 })

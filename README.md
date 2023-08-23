@@ -1,4 +1,4 @@
-# Nuxt 3 + UnoCSS Minimal Starter
+# Nuxt 3 minimal app + UnoCSS + Custom SVG Icons
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
