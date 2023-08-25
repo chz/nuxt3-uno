@@ -9,13 +9,25 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
     "@iconify/tools": "^3.0.5",
     "@nuxt/devtools": "latest",
     "@types/node": "^20.4.1",
     "@unocss/nuxt": "^0.55.2",
-    "nuxt": "^3.6.5"
+    "eslint": "^8.47.0",
+    "lint-staged": "^14.0.1",
+    "nuxt": "^3.6.5",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
