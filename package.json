@@ -1,9 +1,9 @@
 {
   "name": "nuxt3-minimal-app",
-  "author": "Chingiz Mammadov <info@chz.dev>",
-  "description": "Nuxt 3 minimal app + UnoCSS + Custom SVG Icons",
   "version": "1.0.0",
   "private": true,
+  "description": "Nuxt 3 minimal app + UnoCSS + Custom SVG Icons",
+  "author": "Chingiz Mammadov <info@chz.dev>",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

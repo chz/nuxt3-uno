@@ -1,12 +1,13 @@
-import type { IconSet } from '@iconify/tools';
+import type { IconSet } from '@iconify/tools'
 import {
+  cleanupSVG,
   deOptimisePaths,
   importDirectory,
   parseColors,
   runSVGO,
-  cleanupSVG
-} from '@iconify/tools';
-import type { CustomIconLoader } from '@iconify/utils/lib/loader/types';
+} from '@iconify/tools'
+import type { CustomIconLoader } from '@iconify/utils/lib/loader/types'
+
 /**
  * Load custom icon set
  */
@@ -16,50 +17,51 @@ function loadCustomIconSet(): CustomIconLoader {
       prefix: 'svg',
     }).then((iconSet) => {
       iconSet
-      .forEach(async (name: any) => {
-        const svg = iconSet.toSVG(name)!;
-        cleanupSVG(svg);
-        await parseColors(svg, {
-          defaultColor: 'currentColor',
-          callback: (attr, colorStr, color: any) => {
-            if (color)  return 'currentColor';
+        .forEach(async (name: any) => {
+          const svg = iconSet.toSVG(name)!
+          cleanupSVG(svg)
+          await parseColors(svg, {
+            defaultColor: 'currentColor',
+            callback: (attr, colorStr, color: any) => {
+              if (color)
+                return 'currentColor'
 
-            switch (color?.type) {
-              case 'none':
-              case 'current':
-                return color;
-            }
+              switch (color?.type) {
+                case 'none':
+                case 'current':
+                  return color
+              }
 
-            throw new Error(
-                `Unexpected color "${colorStr}" in attribute ${attr}`
-            );
-          },
-        });
+              throw new Error(
+                `Unexpected color "${colorStr}" in attribute ${attr}`,
+              )
+            },
+          })
 
-        // Optimise
-        runSVGO(svg);
+          // Optimise
+          runSVGO(svg)
 
-        // Update paths for compatibility with old software
-        await deOptimisePaths(svg);
+          // Update paths for compatibility with old software
+          await deOptimisePaths(svg)
 
-        // Update icon in icon set
-        iconSet.fromSVG(name, svg);
-      })
-      .then(() => {
-        resolve(iconSet);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-    });
-  });
+          // Update icon in icon set
+          iconSet.fromSVG(name, svg)
+        })
+        .then(() => {
+          resolve(iconSet)
+        })
+        .catch((err) => {
+          reject(err)
+        })
+    })
+  })
 
   return async (name) => {
-    const iconSet = await promise;
-    return iconSet.toSVG(name)?.toMinifiedString();
-  };
+    const iconSet = await promise
+    return iconSet.toSVG(name)?.toMinifiedString()
+  }
 }
 
 export {
-  loadCustomIconSet
-};
+  loadCustomIconSet,
+}
