@@ -17,9 +17,9 @@
     "@antfu/eslint-config": "^0.41.0",
     "@iconify/tools": "^3.0.5",
     "@nuxt/devtools": "latest",
-    "@types/node": "^20.4.1",
-    "@unocss/nuxt": "^0.55.2",
-    "eslint": "^8.47.0",
+    "@types/node": "^20.5.6",
+    "@unocss/nuxt": "^0.55.3",
+    "eslint": "^8.48.0",
     "lint-staged": "^14.0.1",
     "nuxt": "^3.7.0",
     "simple-git-hooks": "^2.9.0"

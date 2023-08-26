@@ -1,20 +1,18 @@
-import process from 'node:process'
 import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'unocss'
 import { loadCustomIconSet } from './utilities'
-
-const isDev: boolean = process.env.NODE_ENV === 'development'
 
 const transformers: any = [
   transformerDirectives(),
 ]
 
 export default defineConfig({
-  content: {
-    pipeline: {
-      include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
-      exclude: ['node_modules', '.git', '.nuxt', '.output'],
-    },
-  },
+  // Uncomment when production
+  // content: {
+  //   pipeline: {
+  //     include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
+  //     exclude: ['node_modules', '.git', '.nuxt', '.output'],
+  //   },
+  // },
   preflights: [
     {
       getCSS: () => `
