@@ -1,5 +1,5 @@
 import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'unocss'
-import { loadCustomIconSet } from './utilities'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 
 const transformers: any = [
   transformerDirectives(),
@@ -30,11 +30,16 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetIcons({
+      customizations: {
+        transform(svg) {
+          return svg.replace(/fill="[^"]*"/g, 'fill="currentColor"')
+        },
+      },
       extraProperties: {
         display: 'inline-flex',
       },
       collections: {
-        custom: loadCustomIconSet(),
+        custom: FileSystemIconLoader('./assets/svg'),
       },
     }),
   ],
