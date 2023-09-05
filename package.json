@@ -21,7 +21,7 @@
     "@unocss/nuxt": "^0.55.3",
     "eslint": "^8.48.0",
     "lint-staged": "^14.0.1",
-    "nuxt": "^3.7.0",
+    "nuxt": "^3.7.1",
     "simple-git-hooks": "^2.9.0"
   },
   "simple-git-hooks": {
