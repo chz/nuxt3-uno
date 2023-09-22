@@ -4,15 +4,14 @@ import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 const transformers: any = [
   transformerDirectives(),
 ]
-
+const isDev: boolean = process.env.NODE_ENV === 'development'
 export default defineConfig({
-  // Uncomment when production
-  // content: {
-  //   pipeline: {
-  //     include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
-  //     exclude: ['node_modules', '.git', '.nuxt', '.output'],
-  //   },
-  // },
+  content: {
+    pipeline: {
+      include: !isDev ? ['pages/**/*.vue', 'components/**/*.vue'] : [],
+      exclude: ['node_modules', '.git', '.nuxt', '.output'],
+    },
+  },
   preflights: [
     {
       getCSS: () => `
