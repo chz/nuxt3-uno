@@ -3,7 +3,6 @@ import process from 'node:process'
 const isDev: boolean = process.env.NODE_ENV === 'development'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
   modules: ['@unocss/nuxt'],
   sourcemap: !isDev,
   nitro: {
