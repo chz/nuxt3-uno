@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         output: {
+          entryFileNames: '_nuxt/[hash].js',
           chunkFileNames: '_nuxt/[hash].js',
           assetFileNames: '_nuxt/[hash][extname]',
         },
